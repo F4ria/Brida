@@ -278,7 +278,7 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
     /*
      * TODO
      * - Pop-up in Context menu
-     * - Tab with helps on Brida and on Frida     * 
+     * - Tab with helps on Brida and on Frida 
      * - 1 Select forlder default current folder
      * - Migrate from ASCII HEX to Base64 for defautl hooks?
      * - Swift demangle?
@@ -327,32 +327,33 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
     public void initializeDefaultHooks() {
     	
     	// Default Android hooks
-    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass with CA certificate, more reliable (requires CA public certificate in /data/local/tmp/cert-der.crt)",BurpExtender.PLATFORM_ANDROID,"androidpinningwithca1",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass without CA certificate, less reliable",BurpExtender.PLATFORM_ANDROID,"androidpinningwithoutca1",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Rooting check bypass",BurpExtender.PLATFORM_ANDROID,"androidrooting1",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Hook keystore stuff",BurpExtender.PLATFORM_ANDROID,"tracekeystore",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Hook crypto stuff",BurpExtender.PLATFORM_ANDROID,"dumpcryptostuff",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Bypass fingerprint 1",BurpExtender.PLATFORM_ANDROID,"androidfingerprintbypass1",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Bypass fingerprint 2",BurpExtender.PLATFORM_ANDROID,"androidfingerprintbypass2hook",true,new String[] {},null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass with CA certificate, more reliable (requires CA public certificate in /data/local/tmp/cert-der.crt)",BurpExtender.PLATFORM_ANDROID,"androidpinningwithca1",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass without CA certificate, less reliable",BurpExtender.PLATFORM_ANDROID,"androidpinningwithoutca1",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Rooting check bypass",BurpExtender.PLATFORM_ANDROID,"androidrooting1",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Hook keystore stuff",BurpExtender.PLATFORM_ANDROID,"tracekeystore",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Hook crypto stuff",BurpExtender.PLATFORM_ANDROID,"dumpcryptostuff",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Bypass fingerprint 1",BurpExtender.PLATFORM_ANDROID,"androidfingerprintbypass1",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Bypass fingerprint 2",BurpExtender.PLATFORM_ANDROID,"androidfingerprintbypass2hook",true,new ArrayList<byte[]>(),null,false));
     	
     	// Default Android functions
-    	addButtonToHooksAndFunctions(new DefaultHook("Bypass fingerprint 2 (Enable the corresponding hook, trigger fingerprint screen and then run this function)",BurpExtender.PLATFORM_ANDROID,"androidfingerprintbypass2function",false,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Dump all aliases in keystore of predefined types",BurpExtender.PLATFORM_ANDROID,"listaliasesstatic",false,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Dump all aliases in keystore collected during runtime (through the \"Hook keystore stuff\" hook)",BurpExtender.PLATFORM_ANDROID,"listaliasesruntime",false,new String[] {},null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Bypass fingerprint 2 (Enable the corresponding hook, trigger fingerprint screen and then run this function)",BurpExtender.PLATFORM_ANDROID,"androidfingerprintbypass2function",false,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Dump all aliases in keystore of predefined types",BurpExtender.PLATFORM_ANDROID,"listaliasesstatic",false,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Dump all aliases in keystore collected during runtime (through the \"Hook keystore stuff\" hook)",BurpExtender.PLATFORM_ANDROID,"listaliasesruntime",false,new ArrayList<byte[]>(),null,false));
 
     	// Default iOS hooks
-    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 10) *",BurpExtender.PLATFORM_IOS,"ios10pinning",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 11) *",BurpExtender.PLATFORM_IOS,"ios11pinning",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 12) *",BurpExtender.PLATFORM_IOS,"ios12pinning",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 13) *",BurpExtender.PLATFORM_IOS,"ios13pinning",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Jailbreaking check bypass **",BurpExtender.PLATFORM_IOS,"iosjailbreak",true,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Bypass TouchID (click \"Cancel\" when TouchID windows pops up)",BurpExtender.PLATFORM_IOS,"iosbypasstouchid",true,new String[] {},null,false));   
-    	addButtonToHooksAndFunctions(new DefaultHook("Dump crypto stuff",BurpExtender.PLATFORM_IOS,"dumpcryptostuffios",true,new String[] {},null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 10) *",BurpExtender.PLATFORM_IOS,"ios10pinning",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 11) *",BurpExtender.PLATFORM_IOS,"ios11pinning",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 12) *",BurpExtender.PLATFORM_IOS,"ios12pinning",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("SSL Pinning bypass (iOS 13) *",BurpExtender.PLATFORM_IOS,"ios13pinning",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Jailbreaking check bypass **",BurpExtender.PLATFORM_IOS,"iosjailbreak",true,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Bypass TouchID (click \"Cancel\" when TouchID windows pops up)",BurpExtender.PLATFORM_IOS,"iosbypasstouchid",true,new ArrayList<byte[]>(),null,false));   
+    	addButtonToHooksAndFunctions(new DefaultHook("Dump crypto stuff",BurpExtender.PLATFORM_IOS,"dumpcryptostuffios",true,new ArrayList<byte[]>(),null,false));
     	
     	// Default iOS functions
-    	addButtonToHooksAndFunctions(new DefaultHook("Dump keychain",BurpExtender.PLATFORM_IOS,"iosdumpkeychain",false,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("List files with Data Protection keys",BurpExtender.PLATFORM_IOS,"iosdataprotectionkeys",false,new String[] {},null,false));
-    	addButtonToHooksAndFunctions(new DefaultHook("Dump and decrypt current ENCRYPTED app (for apps downloaded from App Store)",BurpExtender.PLATFORM_IOS,"iosdumpcurrentencryptedapp",false,new String[] {},null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Dump keychain",BurpExtender.PLATFORM_IOS,"iosdumpkeychain",false,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("List files with Data Protection keys",BurpExtender.PLATFORM_IOS,"iosdataprotectionkeys",false,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Dump and decrypt current ENCRYPTED app (for apps downloaded from App Store)",BurpExtender.PLATFORM_IOS,"iosdumpcurrentencryptedapp",false,new ArrayList<byte[]>(),null,false));
+    	addButtonToHooksAndFunctions(new DefaultHook("Demagle Swift name",BurpExtender.PLATFORM_IOS,"demangle",false,new ArrayList<byte[]>(),new ArrayList<BurpExtender.Transformation>(),true));
     	    	
     }
     
@@ -2366,7 +2367,7 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 			    processCompilation.destroyForcibly();
 			    return false;
 			}
-			
+						
 			BufferedReader stdInput = new BufferedReader(new InputStreamReader(processCompilation.getInputStream()));	
 			BufferedReader stdError = new BufferedReader(new InputStreamReader(processCompilation.getErrorStream()));
 		
@@ -2376,14 +2377,11 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 			}
 		
 			// Read any errors from the attempted command
-			System.out.println("Here is the standard error of the command (if any):\n");
-			boolean hasExceptions = false;
 			while ((s = stdError.readLine()) != null) {
 			    printException(null,s);
-			    hasExceptions = true;
 			}
 			
-			if(!hasExceptions) {
+			if(processCompilation.exitValue() == 0) {
 				printSuccessMessage("frida-compile completed successfully");
 				return true;
 			} else {
@@ -2993,7 +2991,14 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 				
 				// Brida compiled file does not exist. Compiling it...
 				if(!compileFridaCode(fridaCompilePath.getText().trim(), fridaPath.getText().trim())) {
-					printException(null, "Error during frida-compile. Aborting.");
+					printException(null, "Error during frida-compile, potentially caused by compilation errors. Aborting. If exception details are not returned, try to run frida-compile manually. frida-compile command:");
+					
+					if(fridaCompileOldCheckBox.isSelected()) {
+						printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -x -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+					} else {
+						printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+					}
+					
 					return;
 				}
 				
@@ -3004,7 +3009,13 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 		} else if(command.equals("compileSpawnApplication") && serverStarted) {
 			
 			if(!compileFridaCode(fridaCompilePath.getText().trim(), fridaPath.getText().trim())) {
-				printException(null, "Error during frida-compile. Aborting.");
+				printException(null, "Error during frida-compile, potentially caused by compilation errors. Aborting. If exception details are not returned, try to run frida-compile manually. frida-compile command:");
+				
+				if(fridaCompileOldCheckBox.isSelected()) {
+					printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -x -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+				} else {
+					printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+				}
 				return;
 			}
 			
@@ -3016,7 +3027,13 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 				
 				// Brida compiled file does not exist. Compiling it...
 				if(!compileFridaCode(fridaCompilePath.getText().trim(), fridaPath.getText().trim())) {
-					printException(null, "Error during frida-compile. Aborting.");
+					printException(null, "Error during frida-compile, potentially caused by compilation errors. Aborting. If exception details are not returned, try to run frida-compile manually. frida-compile command:");
+					
+					if(fridaCompileOldCheckBox.isSelected()) {
+						printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -x -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+					} else {
+						printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+					}
 					return;
 				}
 				
@@ -3027,7 +3044,13 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 		} else if(command.equals("compileAttachApplication") && serverStarted) {
 			
 			if(!compileFridaCode(fridaCompilePath.getText().trim(), fridaPath.getText().trim())) {
-				printException(null, "Error during frida-compile. Aborting.");
+				printException(null, "Error during frida-compile, potentially caused by compilation errors. Aborting. If exception details are not returned, try to run frida-compile manually. frida-compile command:");
+				
+				if(fridaCompileOldCheckBox.isSelected()) {
+					printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -x -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+				} else {
+					printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+				}
 				return;
 			}
 			
@@ -3051,6 +3074,15 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 		} else if(command.equals("compileReloadScript") && serverStarted && applicationSpawned) {
 			
 			if(!compileFridaCode(fridaCompilePath.getText().trim(), fridaPath.getText().trim())) {
+				
+				printException(null, "Error during frida-compile, potentially caused by compilation errors. Aborting. If exception details are not returned, try to run frida-compile manually. frida-compile command:");
+				
+				if(fridaCompileOldCheckBox.isSelected()) {
+					printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -x -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+				} else {
+					printException(null, "\"" + fridaCompilePath.getText().trim() + "\" -o \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "bridaGeneratedCompiledOutput.js\" \"" + fridaPath.getText().trim() +  System.getProperty("file.separator") + "brida.js\"");
+				}
+				
 				return;
 			}
 				
@@ -3425,7 +3457,10 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 				try {
 					foundObjcJavaMethods = (HashMap<String,Integer>)(executePyroCall(pyroBridaService, "callexportfunction",new Object[] {fridaExportForPlatform,new String[] {toSearch}}));
 				} catch (Exception e) {
-					printException(e,"Exception searching Java methods");
+					if(platform == BurpExtender.PLATFORM_IOS)
+						printException(e,"Exception searching OBJC methods");
+					else
+						printException(e,"Exception searching Java methods");
 					return;
 				} 
 			}
@@ -3595,12 +3630,22 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 		} else if(command.equals("trapBacktrace")) {	
 			
 			trap(true);	
+			
+		} else if(command.equals("demangle")) {
+		
+			demangleSwift();
 
 		} else if(command.equals("pythonPathSelectFile")) {
 			
 			JFrame parentFrame = new JFrame();
 			JFileChooser fileChooser = new JFileChooser();
-			fileChooser.setDialogTitle("Python Path");
+			
+			if(useVirtualEnvCheckBox.isSelected()) {
+				fileChooser.setDialogTitle("Virtual Env Folder");
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			} else {
+				fileChooser.setDialogTitle("Python Path");
+			}
 			
 			int userSelection = fileChooser.showOpenDialog(parentFrame);
 			
@@ -4519,6 +4564,48 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 		}
 		
 	}
+	
+	public void demangleSwift() {
+		
+		if(platform != BurpExtender.PLATFORM_IOS) {
+			
+			printException(null,"Swift demangle is available only on iOS OS");
+			return;
+			
+		}
+		
+		DefaultMutableTreeNode clickedNode = (DefaultMutableTreeNode)(tree.getSelectionPath().getLastPathComponent());
+		
+		String toDemangle = (String)clickedNode.getUserObject();
+		
+		if(toDemangle.startsWith("function: ") || toDemangle.startsWith("variable: ")) {
+			
+			toDemangle = toDemangle.replace("function: ", "");
+			toDemangle = toDemangle.replace("variable: ", "");
+			
+			if(toDemangle.startsWith("__T"))
+				toDemangle = toDemangle.substring(1);
+				
+			try {
+					
+				String ret = (String)executePyroCall(pyroBridaService, "callexportfunction",new Object[] {"demangle",new String[] {toDemangle}});
+				
+				JOptionPane.showMessageDialog(null, ret, toDemangle, JOptionPane.INFORMATION_MESSAGE);
+				
+			} catch (Exception e) {
+				
+				printException(e,"Exception with demangle");
+				
+			}
+			
+		} else {
+			
+			printException(null,"Only Swift names can be demangled");
+			
+		}
+		
+		
+	}
 
 	public void trap(boolean withBacktrace) {		
 
@@ -4608,7 +4695,7 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 				} else if(type.startsWith("java")) {
 					defaultHookPlatform = BurpExtender.PLATFORM_IOS;
 				}
-				DefaultHook treeHook = new DefaultHook("Tree hook trace " +  type + ": " + pattern,defaultHookPlatform,"trace",true,new String[] {pattern,type,(withBacktrace ? "true" : "false")},null,false);
+				DefaultHook treeHook = new DefaultHook("Tree hook trace " +  type + ": " + pattern,defaultHookPlatform,"trace",true,new ArrayList<byte[]>(Arrays.asList(new byte[][] {pattern.getBytes(),type.getBytes(),(withBacktrace ? "true".getBytes() : "false".getBytes())})),null,false);				
 				treeHook.setEnabled(true);
 				treeHooks.add(treeHook);
 				
@@ -4712,7 +4799,7 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 				} else if(type.startsWith("java")) {
 					defaultHookPlatform = BurpExtender.PLATFORM_IOS;
 				}
-				DefaultHook treeHook = new DefaultHook("Tree hook changereturnvalue " +  type + ": " + pattern,defaultHookPlatform,"changereturnvalue",true,new String[] {pattern,type,returnValueType,dialogResult},null,false);
+				DefaultHook treeHook = new DefaultHook("Tree hook changereturnvalue " +  type + ": " + pattern,defaultHookPlatform,"changereturnvalue",true,new ArrayList<byte[]>(Arrays.asList(new byte[][] {pattern.getBytes(),type.getBytes(),returnValueType.getBytes(),dialogResult.getBytes()})) ,null,false);
 				treeHook.setEnabled(true);
 				treeHooks.add(treeHook);
 								
@@ -5046,12 +5133,12 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 
             		if(applicationSpawned) {
 	            		// Parameters
-	    				String[] currentParameters;
+	    				List<byte[]> currentParameters = new ArrayList<byte[]>();
 	    				if(dh.isPopupParameters()) {
 	    					String parametersPopup = JOptionPane.showInputDialog("Enter parameter(s), delimited by \"#,#\"");
-	    					currentParameters = parametersPopup.split("#,#");
-	    					for(int i=0;i<currentParameters.length;i++) {
-        						currentParameters[i] = CustomPlugin.encodeCustomPluginValue(currentParameters[i].getBytes(),dh.getParametersEncoding(), BurpExtender.this);
+	    					String[] parametersPopupSplitString = parametersPopup.split("#,#");
+	    					for(int i=0;i<parametersPopupSplitString.length;i++) {
+        						currentParameters.add(CustomPlugin.encodeCustomPluginValue(parametersPopupSplitString[i].getBytes(),dh.getParametersEncoding(), BurpExtender.this));
         					}
 	    				} else {
         					// For cases different from POPUP parameters are already encoded	    					
@@ -5061,7 +5148,7 @@ public class BurpExtender implements IBurpExtender, ITab, ActionListener, MouseL
 	    				try {
 	    					printJSMessage("*** Output " + dh.getName() + ":");
 	    					//String ret = (String)pyroBridaService.call("callexportfunction",dh.getFridaExportName(),currentParameters);
-	    					String ret = (String)executePyroCall(pyroBridaService, "callexportfunction",new Object[] {dh.getFridaExportName(),currentParameters});
+	    					String ret = (String)executePyroCall(pyroBridaService, "callexportfunction",new Object[] {dh.getFridaExportName(),CustomPlugin.convertParametersForFrida(currentParameters,BurpExtender.this)});
 	    					printJSMessage("* Ret value: " + ret);
 						} catch (Exception e) {
 							printException(e,"Error while running function " + dh.getName());
